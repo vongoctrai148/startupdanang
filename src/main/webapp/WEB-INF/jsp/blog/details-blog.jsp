@@ -7,7 +7,7 @@
     <!-- Basic Page Needs
 ================================================== -->
     <meta charset="utf-8"/>
-    <title>Project Tile</title>
+    <title>Blog</title>
 
     <!-- Mobile Specific Metas
 ================================================== -->

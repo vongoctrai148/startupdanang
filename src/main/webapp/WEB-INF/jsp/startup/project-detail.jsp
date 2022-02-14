@@ -8,7 +8,7 @@
     <!-- Basic Page Needs
 ================================================== -->
     <meta charset="utf-8" />
-    <title>Project Tile</title>
+    <title>Dự án</title>
 
     <!-- Mobile Specific Metas
 ================================================== -->

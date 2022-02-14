@@ -8,7 +8,7 @@
     <!-- Basic Page Needs
   ================================================== -->
     <meta charset="utf-8">
-    <title>Constra - Construction Html5 Template</title>
+    <title>Dự án</title>
 
     <!-- Mobile Specific Metas
   ================================================== -->
