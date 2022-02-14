@@ -127,7 +127,7 @@
                                                         <div class="form-group">
                                                             <form:input path="phone" class="form-control" placeholder="Phone *" value="" />
                                                             <form:errors path="phone"/>
-                                                            <p id="isPhoneValid" style="color: red"><</p>
+                                                            <p id="isPhoneValid" style="color: red"></p>
                                                         </div>
                                                         <div class="form-group">
                                                             <form:input path="cccd" class="form-control"  placeholder="CCCD/CMND *" value="" />
