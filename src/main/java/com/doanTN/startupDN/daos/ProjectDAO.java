@@ -14,6 +14,9 @@ public interface ProjectDAO extends JpaRepository<Projects, Long> {
     @Query("SELECT distinct pr FROM Projects pr, InvestedProjects ip WHERE pr.user.username = ?1 AND ip.acceptstatus = ?2 AND pr.aceptedstatus = 1")
     List<Projects> findAllByUsernameAndInvestionStatus(String username, int acceptStatus);
 
+    @Query("SELECT count (ip) FROM Projects pr, InvestedProjects ip WHERE pr.user.username = ?1 AND ip.acceptstatus = ?2 AND pr.aceptedstatus = 1")
+    int countInvestors(String username, int acceptStatus);
+
     @Query("select p from Projects p WHERE p.aceptedstatus = ?1 ORDER BY p.totalvoted DESC ")
     List<Projects> getProjectsByTotalvoted(int acceptStatus, Pageable pageable);
 

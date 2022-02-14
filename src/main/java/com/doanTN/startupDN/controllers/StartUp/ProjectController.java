@@ -227,6 +227,7 @@ public class ProjectController {
             return "redirect:/login";
         } else {
             model.addAttribute("profileUser", userService.getUserByUserName(user.getUsername()));
+            model.addAttribute("countInvestors", projectService.countInvestors(user.getUsername(), 0));
             model.addAttribute("listProjectOfUser", projectService.getAllProjectByUsernameAndAcceptStatus(user.getUsername(), 0));
             return "startup/acceptInvestion";
         }

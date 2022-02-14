@@ -118,7 +118,7 @@
                                     <tr>
                                         <td>${project.projectname}</td>
                                         <td>${project.category.categoryname}</td>
-                                        <td><fmt:formatNumber value="${project.amountcalled}" maxFractionDigits="0" currencyCode="VND"  type="currency" currencySymbol="VND"/></td>
+                                        <td><fmt:formatNumber value="${project.amountcalled}" maxFractionDigits="0"/> VND</td>
                                         <td>
                                             <c:choose>
                                                 <c:when test="${project.investedProjects != null}">

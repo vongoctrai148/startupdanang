@@ -117,16 +117,17 @@
                                                         <div class="form-group">
                                                             <form:input path="fullname" class="form-control" id="fullNameId" placeholder="Họ tên *" name="fullname" />
                                                             <form:errors path="fullname"/>
-                                                            <p id="isNameValid"></p>
+                                                            <p id="isNameValid" style="color: red"></p>
                                                         </div>
                                                         <div class="form-group">
                                                             <form:input path="email" type="email" class="form-control" placeholder="email *"  />
                                                             <form:errors path="email"/>
-                                                            <p id="isEmailValid"></p>
+                                                            <p id="isEmailValid" style="color: red"></p>
                                                         </div>
                                                         <div class="form-group">
                                                             <form:input path="phone" class="form-control" placeholder="Phone *" value="" />
                                                             <form:errors path="phone"/>
+                                                            <p id="isPhoneValid" style="color: red"><</p>
                                                         </div>
                                                         <div class="form-group">
                                                             <form:input path="cccd" class="form-control"  placeholder="CCCD/CMND *" value="" />
@@ -151,7 +152,7 @@
                                                                     <span>Female </span>
                                                                 </label>
                                                             </div>
-                                                            <p id="genderErrror"></p>
+                                                            <p id="genderErrror" style="color: red"></p>
                                                             <form:errors path="gender"/>
                                                         </div>
 

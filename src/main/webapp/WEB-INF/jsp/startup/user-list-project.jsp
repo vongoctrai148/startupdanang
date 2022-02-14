@@ -153,8 +153,7 @@
                                         <tr>
                                             <td>${project.projectname}</td>
                                             <td>${project.category.categoryname}</td>
-                                            <td><fmt:formatNumber value="${project.amountcalled}" type="currency"
-                                                                  currencySymbol="VND"/></td>
+                                            <td><fmt:formatNumber value="${project.amountcalled}" maxFractionDigits="0"/> VND</td>
                                             <td>
                                                 <script>
                                                     if (${project.aceptedstatus} == 1){

@@ -167,6 +167,11 @@ public class ProjectService {
         InvestedProjects investedProject = investedProjectsDAO.getAllByProjectIdAndUserId(projectId, userId);
         investedProject.setAcceptstatus(1);
     }
+    @Transactional
+    public int countInvestors (String username, int acceptStatus){
+        return projectDAO.countInvestors(username, acceptStatus);
+    }
+
 
     @Transactional
     public void deleteInvestorRequest(Long projectId, int acceptStatus){
