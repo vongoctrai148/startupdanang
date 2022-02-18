@@ -54,7 +54,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="banner-heading">
-                            <h1 class="banner-title">Dự án</h1>
+                            <h1 class="banner-title">Nhà đầu tư</h1>
                             <!-- <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb justify-content-center">
                                   <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -162,23 +162,25 @@
                 <div class="row">
                     <div class="col-lg mb-5 mb-lg-0">
                         <h1 style="margin-bottom: 10%">Thông tin công ty của bạn</h1>
-                        <form:form action="/investor/save" method="POST" modelAttribute="investorsForm" enctype="multipart/form-data">
+                        <form:form action="/investor/save" method="POST" name="saveInvestorForm" modelAttribute="investorsForm"  onsubmit="return validateInvestor()" enctype="multipart/form-data">
                             <form:hidden path="id"/>
                             <h5 style="color: red">${message}</h5>
                             <div class="form-group">
                                 <label for="investorsname">Tên công ty</label>
                                 <form:input path="investorsname" class="form-control" id="investorsname"  placeholder="Nhập tên công ty"/>
                                 <form:errors path="investorsname"/>
+                                <p id="isNameEmpty"></p>
                             </div>
                             <div class="form-group">
-                                <label for="title">Tên viết tắt</label>
-                                <form:input path="abbreviations" class="form-control" id="abbreviations"/>
+                                <label for="abbreviations">Tên viết tắt</label>
+                                <form:input path="abbreviations" class="form-control" id="abbreviations" placeholder="Nhập tên viết tắt công ty"/>
                                 <form:errors path="abbreviations"/>
+                                <p id="isTitleEmpty" style="color: red"></p>
                             </div>
 
                             <div class="form-group">
-                                <label for="projectdetail">Nôi dung</label>
-                                <form:textarea path="content" class="form-control"  id="content" style="height: 60vh; color: black" ></form:textarea>
+                                <label for="content">Nôi dung</label>
+                                <form:textarea path="content" class="form-control"  id="content" style="height: 60vh; color: black" placeholder="Nhập mô tả về công ty" ></form:textarea>
                                 <form:errors path="content"/>
                             </div>
                             <div class="form-group" >
@@ -190,42 +192,46 @@
                                     <form:select class="form-control" id="provinceId" path="province">
                                         <form:options items="${provinces}" itemLabel="name" itemValue="id"/>
                                     </form:select>
+                                    <p id="checkProvince" style="color: red"></p>
                                 </div>
                                 <div class="form-group col">
                                     <label for="districtId">Quận/Huyện: </label>
                                     <form:select class="form-control" id="districtId" path="district">
                                         <option selected value="">Chọn Quận Huyện</option>
                                     </form:select>
+                                    <p id="checkDistrict" style="color: red"></p>
                                 </div>
                                 <div class="form-group col">
                                     <label for="subdistrictId">Xã/Phường: </label>
                                     <form:select class="form-control" id="subdistrictId" path="subdistrict">
                                         <option selected value="">Chọn Xã Phường</option>
                                     </form:select>
+                                    <p id="checkSubDistrict" style="color: red"></p>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="housenoId">Địa chỉ nhà - Đường/Thôn:</label>
-                                <form:input type="text" class="form-control" id="housenoId" path="houseno"/>
+                                <label for="houseno">Địa chỉ nhà - Đường/Thôn:</label>
+                                <form:input type="text" class="form-control" id="housenoId" path="houseno" placeholder="Nhập địa chỉ "/>
                                 <form:errors path="houseno"/>
                             </div>
                             <div class="form-group">
-                                <label for="title">Số điện thoại</label>
-                                <form:input path="sdt" class="form-control" id="abbreviations"/>
+                                <label for="sdt">Số điện thoại</label>
+                                <form:input path="sdt" class="form-control" id="abbreviations" placeholder="Nhập số điện thoại liên lạc"/>
                                 <form:errors path="sdt"/>
                             </div>
                             <div class="form-group">
-                                <label for="title">Email</label>
-                                <form:input path="email" class="form-control" id="abbreviations"/>
+                                <label for="email">Email</label>
+                                <form:input path="email" class="form-control" id="abbreviations" placeholder="Nhập email công ty"/>
                                 <form:errors path="email"/>
                             </div>
                             <div class="form-group">
-                                <label for="amountcalled">LoGo</label>
+                                <label for="logo">LoGo</label>
                                 <input type="file" name="logo" id="logo">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Cập nhật</button>
                         </form:form>
+
                     </div><!-- Content Col end -->
 
                 </div><!-- Main row end -->
@@ -252,7 +258,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
     <!-- Google Map Plugin-->
     <script src="/plugins/google-map/map.js" defer></script>
-
+    <script src="/js/validation.js"></script>
     <!-- Template custom -->
     <script src="/js/script.js"></script>
     <script src="/js/multipleImageJS.js"></script>

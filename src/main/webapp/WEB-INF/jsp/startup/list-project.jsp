@@ -87,7 +87,7 @@
                                             <a href="/startup/projectDetail/${project.id}"><h3 class="ts-name">${project.projectname}</h3></a>
                                             <h5>Được đánh giá: ${project.totalvoted}</h5>
                                                 <a href="/startup/projectDetail/${project.id}"><p class="ts-description">${project.projectdetail}</p></a>
-                                            <a href="/startup/projectDetail/${project.id}">Xem chi tiết</a>
+                                            <span><a href="/startup/projectDetail/${project.id}">Xem chi tiết</a></span>
                                         </div>
 
                                     </div>

@@ -201,3 +201,46 @@ function validateProject() {
         $('#checkSubDistrict').html("");
     }
 }
+function validateInvestor() {
+    const province = document.forms["saveInvestorForm"]["province"].value;
+    const investorsname = document.forms["saveInvestorForm"]["investorsname"].value;
+   // const abbreviations = document.forms["saveInvestorForm"]["abbreviations"].value;
+    const abbreviations = $('#abbreviations').val();
+    const district = document.forms["saveInvestorForm"]["district"].value;
+    const subDistrict = document.forms["saveInvestorForm"]["subdistrict"].value;
+    if(investorsname===""){
+        $('#isNameEmpty').html("Vui lòng nhập tên cho công ty");
+        return false;
+    }else {
+        $('#isNameEmpty').html("");
+    }
+    if(abbreviations===""){
+        $('#isTitleEmpty').html("Vui lòng nhập tên viết tắt của công ty");
+        return false;
+    }else {
+        $('#isTitleEmpty').html("");
+    }
+    if(province=="Tỉnh/Thành phố*"){
+        // alert("Thông tin không hợp lệ!");
+        $('#checkProvince').html("Vui lòng chọn Tỉnh/thành phố!");
+        return false;
+    }else{
+        $('#checkProvince').html("");
+    }
+    if(district=="Quận/Huyện*" || district == ""){
+        // alert("Thông tin không hợp lệ!");
+        $('#checkDistrict').html("Vui lòng chọn Quận/huyện!");
+        return false;
+    }else{
+        $('#checkDistrict').html("");
+    }
+    if(subDistrict=="Xã/Phường*" || subDistrict ==""){
+        // alert("Thông tin không hợp lệ!");
+        document.getElementById("subdistrictId").innerHTML = "";
+        $('#checkSubDistrict').html("Vui lòng chọn Xã/phường!");
+        return false;
+    }else {
+        $('#checkSubDistrict').html("");
+    }
+    return true;
+}

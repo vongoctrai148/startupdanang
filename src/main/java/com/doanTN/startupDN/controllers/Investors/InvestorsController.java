@@ -49,7 +49,7 @@ public class InvestorsController {
             return "investorsdetails";
 
     }
-    @PostMapping("/investor/registration")
+    @GetMapping("/investor/registration")
     public String getRegistrationProject( HttpSession session,@RequestParam("id") Long id,
                                           @RequestParam("from") String from,@RequestParam("to") String to,
                                           @RequestParam("subject") String subject,@RequestParam("body") String body) {

@@ -157,9 +157,14 @@
                                 <a><i class="fa fa-star checked"></i></a>
                                 (${project.sumvoted} đánh giá)
                             </p>
-
-                            <button type="button" data-toggle="modal"  data-target="#myModal" class="btn btn-primary" href="#"><i class="fas fa-envelope"></i>Liên hệ với ${project.user.email}</button>
-                        </div>
+                            <c:if test="${user.getRoles() == 'investors'}">
+                                <button type="button" data-toggle="modal"  data-target="#myModal" class="btn btn-primary" href="#"><i class="fas fa-envelope"></i>Liên hệ với ${project.user.email}</button>
+                            </c:if>
+<%--                            <c:if test="${user.getRoles() == 'startup'}">--%>
+<%--                                <button disabled type="button" data-toggle="modal"  data-target="#myModal" class="btn btn-primary" href="#"><i class="fas fa-envelope"></i>Liên hệ với ${project.user.email}</button>--%>
+<%--                            </c:if>--%>
+<%--                            --%>
+                            </div>
                     </div>
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -171,14 +176,14 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="post" action="/investor/registration">
+                                    <form method="GET" action="/investor/registration">
                                         <input type="hidden" value="${project.id}" name="id">
                                         <div class="form-group">
-                                            <label  class="col-form-label">From:</label>
+                                            <label  class="col-form-label">Từ:</label>
                                             <input type="text" class="form-control" name="from" value="${user.email}">
                                         </div>
                                         <div class="form-group">
-                                            <label  class="col-form-label">To:</label>
+                                            <label  class="col-form-label">Tới:</label>
                                             <input type="text" class="form-control"  name = "to" id="email" value="${project.user.email}">
                                         </div>
                                         <div class="form-group">

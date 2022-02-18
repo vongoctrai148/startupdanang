@@ -94,7 +94,9 @@
                 <div class="col-xl-8 col-lg-8">
                     <div class="content-inner-page">
                         <div class="col-md-12 form-group text-right">
+                            <c:if test="${listInvesterOfUser.size() == 0}">
                             <a class="btn btn-success" href="/investor/save" >Thêm mới</a>
+                            </c:if>
                         </div>
                         <div class="table-responsive">
 
@@ -112,7 +114,6 @@
                                         <th scope="col">
                                             <div style="width: 120px">Quốc gia</div>
                                         </th>
-                                        <th align="center" scope="col" colspan="1">Email</th>
                                         <th align="center" scope="col" colspan="2">Hoạt động</th>
                                     </tr>
                                     </thead>
@@ -124,7 +125,6 @@
                                             <td>${investors.investorsname}</td>
                                             <td>${investors.abbreviations}</td>
                                             <td>${investors.country}</td>
-                                            <td>${investors.email}</td>
                                             <td align="center"><a href="/investor/details/${investors.id}"
                                                                   title="Chi tiết"><i class="fa fa-info-circle"></i></a>
                                             </td>
