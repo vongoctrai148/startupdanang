@@ -68,7 +68,7 @@ public class InvestorsController {
         helper.setTo(to);
         helper.setText(body);
         helper.setSubject(subject);
-        investorsProjectServices.registration(user,projectService.getProjectById(id));
+        //investorsProjectServices.registration(user,projectService.getProjectById(id));
         /*SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from)
         message.setTo(to);
