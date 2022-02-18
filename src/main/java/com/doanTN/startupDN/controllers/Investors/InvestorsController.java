@@ -7,15 +7,19 @@ import com.doanTN.startupDN.entities.Projects;
 import com.doanTN.startupDN.entities.Users;
 import com.doanTN.startupDN.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -30,7 +34,8 @@ public class InvestorsController {
     private InvestorsProjectServices investorsProjectServices;
     @Autowired
     JavaMailSender javaMailSender;
-
+    @Autowired
+    private Environment env;
 
     public static final int PAGE_SIZE = 8;
     @GetMapping("/investor")
@@ -52,17 +57,23 @@ public class InvestorsController {
     @GetMapping("/investor/registration")
     public String getRegistrationProject( HttpSession session,@RequestParam("id") Long id,
                                           @RequestParam("from") String from,@RequestParam("to") String to,
-                                          @RequestParam("subject") String subject,@RequestParam("body") String body) {
+                                          @RequestParam("subject") String subject,@RequestParam("body") String body) throws MessagingException {
         Users user = (Users) session.getAttribute("user");
         if (("").equals(user) || user == null) {
             return "redirect:/login";
         }
+        MimeMessage message = javaMailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message);
+        helper.setFrom(env.getProperty("spring.mail.username"));
+        helper.setTo(to);
+        helper.setText(body);
+        helper.setSubject(subject);
         investorsProjectServices.registration(user,projectService.getProjectById(id));
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(from);
+        /*SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(from)
         message.setTo(to);
         message.setSubject(subject);
-        message.setText(body);
+        message.setText(body);*/
         javaMailSender.send(message);
         return "redirect:/startup/projectDetail/"+id;
     }
