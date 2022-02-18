@@ -176,7 +176,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="GET" action="/investor/registration">
+                                    <form method="POST" action="/investor/registration">
                                         <input type="hidden" value="${project.id}" name="id">
                                         <div class="form-group">
                                             <label  class="col-form-label">Từ:</label>

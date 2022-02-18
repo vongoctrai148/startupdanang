@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 
@@ -54,17 +55,17 @@ public class InvestorsController {
             return "investorsdetails";
 
     }
-    @GetMapping("/investor/registration")
+    @PostMapping("/investor/registration")
     public String getRegistrationProject( HttpSession session,@RequestParam("id") Long id,
                                           @RequestParam("from") String from,@RequestParam("to") String to,
-                                          @RequestParam("subject") String subject,@RequestParam("body") String body) throws MessagingException {
+                                          @RequestParam("subject") String subject,@RequestParam("body") String body) throws MessagingException, UnsupportedEncodingException {
         Users user = (Users) session.getAttribute("user");
         if (("").equals(user) || user == null) {
             return "redirect:/login";
         }
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
-        helper.setFrom(env.getProperty("spring.mail.username"));
+        helper.setFrom(env.getProperty("spring.mail.username"),"System mail");
         helper.setTo(to);
         helper.setText(body);
         helper.setSubject(subject);
