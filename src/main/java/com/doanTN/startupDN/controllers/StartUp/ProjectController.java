@@ -123,7 +123,12 @@ public class ProjectController {
         } else {
             if (projectForm.getId() == null || projectForm.getId().equals("")) {
                 java.util.Date posteddate = new java.util.Date();
-                String imgPresent = imagepresent.getOriginalFilename();
+                String imgPresent = "";
+                if(imagepresent.getOriginalFilename() == "" || imagepresent.getOriginalFilename() == null){
+                    imgPresent = "noImage.png";
+                }else {
+                    imgPresent = imagepresent.getOriginalFilename();
+                }
                 Path imgPresentPath = Paths.get("src/main/resources/static/images/projects/" + imgPresent);
                 Files.write(imgPresentPath, imagepresent.getBytes());
                 Projects project = projectService.saveProject(userDAO.getUsersByUsername(user.getUsername()), categoryService.getCategoryById(projectForm.getCategoryId()),
@@ -172,7 +177,12 @@ public class ProjectController {
                         }
                     });
                 } else {
-                    String imgPresent = imagepresent.getOriginalFilename();
+                    String imgPresent = "";
+                    if(imagepresent.getOriginalFilename() == "" || imagepresent.getOriginalFilename() == null){
+                        imgPresent = "noImage.png";
+                    }else {
+                        imgPresent = imagepresent.getOriginalFilename();
+                    }
                     Path imgPresentPath = Paths.get("src/main/resources/static/images/projects/" + imgPresent);
                     Files.write(imgPresentPath, imagepresent.getBytes());
                     Projects project = projectService.updateProject(projectForm.getId(), categoryService.getCategoryById(projectForm.getCategoryId()),
