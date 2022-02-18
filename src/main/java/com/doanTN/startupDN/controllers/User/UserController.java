@@ -148,7 +148,7 @@ public class UserController {
             if (avatarUser == null || avatarUser.getOriginalFilename().equals("")) {
                 filename = null;
             } else {
-                filename = userForm.getCccd().trim() + avatarUser.getOriginalFilename();
+                filename = avatarUser.getOriginalFilename();
                 Path imgPresentPath = Paths.get("src/main/resources/static/images/userImages/" + filename);
                 Files.write(imgPresentPath, avatarUser.getBytes());
             }

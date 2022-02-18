@@ -45,7 +45,7 @@ public class HomepageController {
     public String postSearchCategory(Model model, @RequestParam("categoryId") Long categoryId,
                                      @RequestParam(value = "page", defaultValue = "1") int page){
         model.addAttribute("listProjects", projectService.getProjectsByCategoryId( categoryId,1, PageRequest.of(page-1,20)));
-        model.addAttribute("pageSize",(projectService.getTotalProjectByCategoryId(categoryId)/20)+1);
+//        model.addAttribute("pageSize",(projectService.getTotalProjectByCategoryId(categoryId)/20)+1);
         model.addAttribute("categories", categoryService.getALlCategories());
         return "redirect:/startup/listProject";
     }

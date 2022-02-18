@@ -328,15 +328,15 @@
                                         <div class="post-meta">
                                             <span class="post-author"> <i class="far fa-user"></i><a href="#">${project.user.fullname}</a> </span>
 
-                                            <span class="post-meta-date"><i class="far fa-calendar"></i> Ngày đăng: <fmt:formatDate pattern = "dd-MM-yyyy" value = "${project.postedday}" /> </span>
-                                            <span class="post-comment"><i class="far fa-comment"></i> 03<a href="#" class="comments-link">Comments</a></span>
+                                            <span class="post-meta-date"><i class="far fa-calendar" style="margin-left: 2%;"></i> Ngày đăng: <fmt:formatDate pattern = "dd-MM-yyyy" value = "${project.postedday}" /> </span>
+<%--                                            <span class="post-comment"><i class="far fa-comment" style="margin-left: 2%;"></i> 03<a href="#" class="comments-link">Comments</a></span>--%>
                                         </div>
-                                        <h5>
+                                        <h5 style="margin-top: 2%;">
                                             -> Mục đích dự án: ${project.title}
                                         </h5>
                                         <h4 style=" color: orange">Số vốn kêu gọi: <fmt:formatNumber value="${project.amountcalled}" maxFractionDigits="0" currencyCode="VND" type="currency" currencySymbol="VND"/></h4>
                                         <blockquote>
-                                            <p>Location: ${project.houseno} - ${project.subdistrict} - ${project.district}
+                                            <p>Địa điểm: ${project.houseno} - ${project.subdistrict} - ${project.district}
                                                 - ${project.province} - ${project.country}</p>
                                         </blockquote>
                                     </div>
@@ -358,7 +358,7 @@
                             </div>
                             <!-- post content end -->
 
-                            <div style="display: flex ;justify-content: center">
+                            <div style="display: flex ;justify-content: center; margin-top: 2%">
                                 <button  type="button" class="btn btn-danger"><a style="color: white;" href="/admin/listProject/detailsProject/deny/${project.id}">Từ chối</a></button>
                                 <button style="margin-left: 20%" type="button" class="btn btn-success"><a style="color: white;" href="/admin/listProject/detailsProject/acept/${project.id}" >Đồng ý</a></button>
                             </div>
@@ -413,7 +413,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
+                <a class="btn btn-primary" href="/logout">Logout</a>
             </div>
         </div>
     </div>

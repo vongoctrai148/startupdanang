@@ -98,7 +98,7 @@
                         </div>
                         <div class="form-group">
                             <label for="amountcalled">Số tiền muốn kêu gọi</label>
-                            <form:input path="amountcalled" class="form-control" id="amountcalled" />
+                            <form:input path="amountcalled" class="form-control" id="amountcalled" type="number" />
                             <form:errors path="amountcalled"/>
                             <p id="isNumeric" style="color: red"></p>
                         </div>
@@ -165,7 +165,7 @@
     ================================================== -->
 
     <!-- initialize jQuery Library -->
-    <script src="/js/validation.js"></script>
+    <script src="/js/projectValidate.js"></script>
     <script src="/plugins/jQuery/jquery.min.js"></script>
     <!-- Bootstrap jQuery -->
     <script src="/plugins/bootstrap/bootstrap.min.js" defer></script>

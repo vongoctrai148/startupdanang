@@ -65,11 +65,11 @@ public class InvestorsController {
         }
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
-        helper.setFrom(env.getProperty("spring.mail.username"),"System mail");
+        helper.setFrom(env.getProperty("spring.mail.username"),"Dương Văn Nhân");
         helper.setTo(to);
         helper.setText(body);
         helper.setSubject(subject);
-        //investorsProjectServices.registration(user,projectService.getProjectById(id));
+        investorsProjectServices.registration(user,projectService.getProjectById(id));
         /*SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from)
         message.setTo(to);

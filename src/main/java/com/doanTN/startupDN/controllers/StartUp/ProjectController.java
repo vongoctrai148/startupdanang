@@ -132,7 +132,7 @@ public class ProjectController {
                         subDistrictService.findSubDistrictNameById(projectForm.getSubdistrict()), projectForm.getHouseno(), imgPresent, posteddate);
                 List<String> fileNames = new ArrayList<>();
                 Arrays.asList(imageOfProject).stream().forEach(file -> {
-                    String fileName = project.getId() + file.getOriginalFilename();
+                    String fileName = file.getOriginalFilename();
                     projectService.addImageOfProject(projectService.getProjectById(project.getId()), fileName);
                     fileNames.add(fileName);
                     Path imagePath = Paths.get("src/main/resources/static/images/projectImages/" + fileName);
@@ -142,7 +142,7 @@ public class ProjectController {
                         e.printStackTrace();
                     }
                 });
-                return "redirect:/startup/listProject";
+                return "redirect:/user/userListProject";
             } else {
                 if (imagepresent.isEmpty() || imagepresent == null &&
                         imageOfProject.toString() == null || imageOfProject.toString().isEmpty()) {
@@ -157,7 +157,7 @@ public class ProjectController {
                             subDistrictService.findSubDistrictNameById(projectForm.getSubdistrict()), projectForm.getHouseno());
                     List<String> fileNames = new ArrayList<>();
                     Arrays.asList(imageOfProject).stream().forEach(file -> {
-                        String fileName = project.getId() + file.getOriginalFilename();
+                        String fileName = file.getOriginalFilename();
                         if (projectService.checkImageExists(fileName)) {
                             projectService.deleteImageByName(fileName);
                             System.out.println(fileName);
@@ -182,7 +182,7 @@ public class ProjectController {
                     List<String> fileNames = new ArrayList<>();
                     System.out.println(fileNames);
                     Arrays.asList(imageOfProject).stream().forEach(file -> {
-                        String fileName = project.getId() + file.getOriginalFilename();
+                        String fileName = file.getOriginalFilename();
                         if (projectService.checkImageExists(fileName)) {
                             projectService.deleteImageByName(fileName);
                         }
@@ -196,7 +196,7 @@ public class ProjectController {
                         }
                     });
                 }
-                return "redirect:/startup/listProject";
+                return "redirect:/user/userListProject";
             }
         }
         if (projectForm.getId() == null || projectForm.getId().equals("")) {

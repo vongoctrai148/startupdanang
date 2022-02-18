@@ -68,7 +68,31 @@
             </div><!-- Container end -->
         </div><!-- Banner text end -->
     </div><!-- Banner area end -->
-
+    <h5 style="margin-top: 3%; margin-left: 5%">Tìm kiếm theo danh mục cho các dự án: </h5>
+    <form action="/startup/listProject" method="post" class="form-inline" style="margin-top: 2%; margin-left: 5%">
+        <div class="input-group">
+            <div class="form-outline">
+                <select id="category" class="form-control" name="categoryId">
+                    <c:forEach items="${categories}" var="category">
+                        <option value="${category.id}">${category.categoryname}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </form>
+    <form action="/startup/searchProject" method="post" class="form-inline" style="margin-top: 2%; margin-left: 5%">
+        <div class="input-group">
+            <div class="form-outline">
+                <input type="text" class="form-control" name="projectName" placeholder="Nhập tên dự án"/>
+            </div>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </form>
     <section id="main-container" class="main-container pb-2">
         <div class="container">
             <div class="row subpage">
